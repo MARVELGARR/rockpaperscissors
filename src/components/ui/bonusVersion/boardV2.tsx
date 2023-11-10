@@ -1,6 +1,6 @@
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
-import { select } from "../../../redux/slices/cardSlice"
+import { selectV2 } from '../../../redux/slices/v2Slice';
 import useCountDown from "../../../hooks/useCountDown";
 import Cards from '../originalVersion/card';
 
@@ -12,19 +12,21 @@ const BoardV2 = () =>{
     const card = [
         { alt:'paper',image:'images/icon-paper.svg', },
         { alt:'rock',image:'images/icon-rock.svg', },
-        { alt:'scissors',image:'images/icon-scissors.svg', }
+        { alt:'scissors',image:'images/icon-scissors.svg', },
+        { alt:'lizard',image:'images/icon-lizard.svg', },
+        { alt:'spock',image:'images/icon-spock.svg', },
     ]
 
     const dispatch = useAppDispatch()
-    const myAnswer = useAppSelector((state)=> state.cards.myAnswer)
-    const computer = useAppSelector((state)=> state.cards.computerAnswer)
-    const winner = useAppSelector((state)=> state.cards.winner)
+    const myAnswer = useAppSelector((state)=> state.cardV2.myAnswer)
+    const computer = useAppSelector((state)=> state.cardV2.computerAnswer)
+    const winner = useAppSelector((state)=> state.cardV2.winner)
     
 
     const {remainingTime,isCounting,startCountDown, stopCountDown} = useCountDown({ time: 30 })
     const handleClick = ( item: string) =>{
 
-        dispatch(select(item))
+        dispatch(selectV2(item))
         startCountDown()
         
     }
@@ -32,17 +34,17 @@ const BoardV2 = () =>{
     return (
         <div className="h-full mt-[10rem]">
 
-            { !isCounting &&(<div className="    h-[20rem] relative  bg-[url('/images/bg-triangle.svg')] bg-no-repeat object-cover ">
+            { !isCounting &&(<div className="    h-[20rem] relative  bg-[url('/images/bg-pentagon.svg')] bg-no-repeat object-cover ">
 
                    
                 {card.map((item, index)=>{
                     return (
-                        <button onClick={()=>handleClick(item.alt)} type='button' key={index} className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[50%] translate-x-[50%] bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        <button onClick={()=>handleClick(item.alt)} type='button' key={index} className={`${index==0? ' top-[3rem] -right-[4rem] paperG': index==1? " rockG -right-[1rem] -bottom-[1rem]" : index==2 ? " sicssorsG  right-[5rem] -top-16" : index == 3? 'lizardG -bottom-[2rem] left-0': 'cyanG top-[2.5rem] -left-[3rem]'} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
                             <Cards
                                 
                                 image={item.image}
                                 alt={item.alt}
-                                className={`  bg-white shadow-inner shadow-slate-500 p-7 rounded-full  w-fit`}
+                                className={`  bg-white shadow-inner shadow-slate-500 p-5 rounded-full  w-fit`}
                             />
                         </button>
                     )
@@ -53,10 +55,10 @@ const BoardV2 = () =>{
                 <div className="flex lg:w-[50rem] w-full items-center justify-evenly gap-[3rem] lg:gap-5">
                     <div className="  lg:gap-[3rem] flex flex-col   gap-[2rem]">
 
-                        <div className={` flex flex-col item  gap-[2rem] ${myAnswer == 'paper'? '  paperG': myAnswer == 'rock'? " rockG " : " sicssorsG  "}  shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        <div className={` flex flex-col item  gap-[2rem] ${myAnswer == 'paper'? '  paperG': myAnswer == 'rock'? " rockG " : myAnswer == 'scissors'? " sicssorsG  " : myAnswer == 'lizard' ? 'lizardG' : 'cyanG'}  shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
 
                             <Cards
-                                image={`${myAnswer == 'paper' ? 'images/icon-paper.svg' : myAnswer == 'rock'? 'images/icon-rock.svg' : 'images/icon-scissors.svg'}`}
+                                image={`${myAnswer == 'paper' ? 'images/icon-paper.svg' : myAnswer == 'rock'? 'images/icon-rock.svg' : myAnswer =='scissors'? 'images/icon-scissors.svg': myAnswer == "lizard" ? '/images/icon-lizard.svg' : '/images/icon-spock.svg' }`}
                                 alt='my answer'
                                 className={`bg-white shadow-inner shadow-slate-500 p-7 rounded-full  w-fit`}
                             />
@@ -69,10 +71,10 @@ const BoardV2 = () =>{
                     </div>
                     <div className=" flex lg:gap-[3rem] flex-col item  gap-[2rem]">
 
-                        <div className={` ${computer == 'paper'? '  paperG': computer == 'rock'? " rockG " : " sicssorsG  "}  shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        <div className={` ${computer == 'paper'? '  paperG': computer == 'rock'? " rockG " : computer == 'scissors'? " sicssorsG  " : computer == 'lizard' ? 'lizardG' : 'cyanG'}  shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
 
                             <Cards
-                                image={`${computer == 'paper' ? 'images/icon-paper.svg' : computer == 'rock'? 'images/icon-rock.svg' : 'images/icon-scissors.svg'}`}
+                                image={`${computer == 'paper' ? 'images/icon-paper.svg' : computer == 'rock'? 'images/icon-rock.svg' : computer =='scissors'? 'images/icon-scissors.svg': computer == "lizard" ? '/images/icon-lizard.svg' : '/images/icon-spock.svg' }`}
                                 alt='computer answer'
                                 className={`bg-white shadow-inner shadow-slate-500 p-7 rounded-full  w-fit`}
                             />

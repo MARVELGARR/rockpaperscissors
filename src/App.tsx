@@ -1,6 +1,7 @@
 
 import './App.css'
 import MobileLayoutV1 from './components/layouts/mobileLayout/version1/mobileLayoutV1'
+import LayoutV2 from './components/layouts/mobileLayout/version2/layout'
 import useActive from './hooks/isActive'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="h-screen  flex justify-center items-center">
 
-      <div className="w-fit h-full">
+      <div className="w-fit hidden h-full">
         <MobileLayoutV1 isActive={isActive} handleChange={handleChange}/>
         { isActive &&(<div className="absolute flex items-center justify-center lg:left-[25rem] lg:right-[25rem] top-40  rounded-lg filter backdrop-blur-md bottom-40 bg-white">
             <img 
@@ -28,6 +29,9 @@ function App() {
               />
             </div>
           </div>)}
+      </div>
+      <div className="w-fit h-full">
+        <LayoutV2/>
       </div>
     </div>
   )
