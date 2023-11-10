@@ -1,12 +1,13 @@
-import Cards from "./card"
+
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { select } from "../../../redux/slices/cardSlice"
 import useCountDown from "../../../hooks/useCountDown";
+import Cards from '../originalVersion/card';
 
 
 
 
-const BoardV1 = () =>{
+const BoardV2 = () =>{
 
     const card = [
         { alt:'paper',image:'images/icon-paper.svg', },
@@ -48,7 +49,7 @@ const BoardV1 = () =>{
                 })}
 
             </div>)}
-            {isCounting && (<div className=" lg:absolute filter backdrop-blur-lg lg:right-[12rem] lg:w-full flex-flex-col items-center gap-5">
+            {isCounting && (<div className=" lg:absolute lg:right-[12rem] lg:w-full flex-flex-col items-center gap-5">
                 <div className="flex lg:w-[50rem] w-full items-center justify-evenly gap-[3rem] lg:gap-5">
                     <div className="  lg:gap-[3rem] flex flex-col   gap-[2rem]">
 
@@ -86,4 +87,4 @@ const BoardV1 = () =>{
         </div>
     )
 }
-export default BoardV1
+export default BoardV2
