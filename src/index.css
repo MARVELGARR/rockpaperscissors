@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-image: radial-gradient(hsl(214, 47%, 23%),  hsl(237, 49%, 15%));
+}
+.darkText{
+    color:hsl(229, 25%, 31%);
+}
+.scoreText{
+    color:hsl(229, 64%, 46%);
+}
+.headerOutline{
+    border-color:  hsl(217, 16%, 45%);
+}
+
+.sicssorsG {
+    background-image: linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0 0 1px hsl(39, 89%, 49%), -1px 2px 0px 2px hsl(40, 84%, 53%);
+}
+  
+.paperG{
+    background-image: linear-gradient(hwb(230 28% 4%), hsl(230, 89%, 65%));
+    box-shadow: 0 0 1px hsl(230, 89%, 62%), -1px 2px 0px 2px hsl(230, 89%, 65%);
+}
+.rockG{
+
+    background-image: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0 0 1px hsl(349, 71%, 52%), -1px 2px 0px 2px hsl(349, 70%, 56%);
+}
+.lizardG{
+    background-image:linear-gradient(hsl(261, 73%, 60%),hsl(261, 72%, 63%)) ;
+    box-shadow: 0 0 10px 0 hsl(261, 73%, 60%), 0 0 20px 5px hsl(261, 72%, 63%);
+}
+.cyanG{
+    background-image:linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+
