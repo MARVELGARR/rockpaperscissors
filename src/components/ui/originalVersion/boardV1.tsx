@@ -31,7 +31,7 @@ const BoardV1 = () =>{
     }
 
     return (
-        <div className="h-full mt-[10rem]">
+        <div className="h-full mt-[10rem] px-5">
 
             { !isCounting &&(<div className="    h-[20rem] relative  bg-[url('/images/bg-triangle.svg')] bg-no-repeat object-cover ">
 
@@ -45,7 +45,7 @@ const BoardV1 = () =>{
                         onClick={()=>handleClick(item.alt)} 
                         type='button' 
                         key={index} 
-                        className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[6rem]  bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[3.7rem]  bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
                             <Cards
                                 
                                 image={item.image}

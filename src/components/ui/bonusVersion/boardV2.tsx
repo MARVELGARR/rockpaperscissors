@@ -39,12 +39,12 @@ const BoardV2 = () =>{
                    
                 {card.map((item, index)=>{
                     return (
-                        <button onClick={()=>handleClick(item.alt)} type='button' key={index} className={`${index==0? ' top-[3rem] -right-[4rem] paperG': index==1? " rockG -right-[1rem] -bottom-[1rem]" : index==2 ? " sicssorsG  right-[5rem] -top-16" : index == 3? 'lizardG -bottom-[2rem] left-0': 'cyanG top-[2.5rem] -left-[3rem]'} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        <button onClick={()=>handleClick(item.alt)} type='button' key={index} className={`${index==0? ' top-[3rem] -right-[2rem] lg:-right-[4rem] paperG': index==1? " rockG -right-[1rem] -bottom-[1rem]" : index==2 ? " sicssorsG  right-[5rem] -top-16" : index == 3? 'lizardG -bottom-[2rem] left-0': 'cyanG top-[2.5rem] -left-[2rem] lg:-left-[3rem]'} absolute shadow-2xl drop-shadow-2xl  rounded-full  p-4 w-fit`}>
                             <Cards
                                 
                                 image={item.image}
                                 alt={item.alt}
-                                className={`  bg-white shadow-inner shadow-slate-500 p-5 rounded-full  w-fit`}
+                                className={`  bg-white shadow-inner p-5 shadow-slate-500  rounded-full  w-fit`}
                             />
                         </button>
                     )

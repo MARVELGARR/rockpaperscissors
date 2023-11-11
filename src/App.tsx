@@ -12,8 +12,8 @@ function App() {
  
 
   return (
-    <div className="h-screen px-5 relative  flex justify-center items-center">
-      <button onClick={()=>setIsVersion((prev)=>!prev)} type="button" className="bg-white absolute text-lg lg:text-4xl top-[40rem] lg:top-[4rem] left-[3rem]  rounded-lg w-fit flex flex-col items-center justify-center p-1 md:p-3 ">{isVersion == true? "v1" : " v2"}</button>
+    <div className="h-screen relative  flex justify-center items-center">
+      <button onClick={()=>setIsVersion((prev)=>!prev)} type="button" className="z-40 bg-white absolute text-lg lg:text-4xl top-[5rem] left-[10rem] lg:top-[4rem] lg:left-[3rem]  rounded-lg w-fit flex flex-col items-center justify-center p-1 md:p-3 ">{isVersion == true? "v1" : " v2"}</button>
       { isVersion && (<div className={`w-fit   h-full`}>
         <MobileLayoutV1 isActive={isActive} handleChange={handleChange}/>
         { isActive &&(<div className="absolute flex items-center justify-center lg:left-[25rem] lg:right-[25rem] top-40  rounded-lg filter backdrop-blur-md bottom-40 bg-white">
