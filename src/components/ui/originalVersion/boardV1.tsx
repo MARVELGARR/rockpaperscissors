@@ -22,7 +22,7 @@ const BoardV1 = () =>{
     const winner = useAppSelector((state)=> state.cards.winner)
     
 
-    const {remainingTime,isCounting,startCountDown, stopCountDown} = useCountDown({ time: 30 })
+    const {remainingTime,isCounting,startCountDown, stopCountDown} = useCountDown({ time: 5 })
     const handleClick = ( item: string) =>{
 
         dispatch(select(item))
