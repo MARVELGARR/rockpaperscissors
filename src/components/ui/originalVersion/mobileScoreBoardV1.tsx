@@ -17,9 +17,9 @@ const MobileScoreBoardV1 = () =>{
                 alt='logo'
                 className="w-[6rem] object-cover"
             />
-            <button type="button" className="bg-white  rounded-lg w-fit flex flex-col items-center justify-center  p-3 ">V</button>
+            
             <div className="bg-white  rounded-lg w-fit flex flex-col items-center justify-center  p-3 ">
-                <div className="scoreText text-center uppercase"><span className='font-bold'>Score: </span>{winner}</div>
+                <div className="scoreText text-center uppercase"><span className='font-bold'>Winner: </span>{winner}</div>
                 <div className="text-center text-2xl font-bold">{score}</div>
             </div>
         </div>

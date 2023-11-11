@@ -32,7 +32,7 @@ const BoardV2 = () =>{
     }
 
     return (
-        <div className="h-full mt-[10rem]">
+        <div className="h-full mt-[13rem] px-4">
 
             { !isCounting &&(<div className="    h-[20rem] relative  bg-[url('/images/bg-pentagon.svg')] bg-no-repeat object-cover ">
 

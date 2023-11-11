@@ -2,6 +2,8 @@ import Cards from "./card"
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { select } from "../../../redux/slices/cardSlice"
 import useCountDown from "../../../hooks/useCountDown";
+import { motion } from "framer-motion";
+import { hoverCard } from "../../motion/motion";
 
 
 
@@ -36,14 +38,21 @@ const BoardV1 = () =>{
                    
                 {card.map((item, index)=>{
                     return (
-                        <button onClick={()=>handleClick(item.alt)} type='button' key={index} className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[50%] translate-x-[50%] bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        <motion.button
+                        variants={hoverCard}
+                        initial='initial'
+                        whileHover='final' 
+                        onClick={()=>handleClick(item.alt)} 
+                        type='button' 
+                        key={index} 
+                        className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[6rem]  bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
                             <Cards
                                 
                                 image={item.image}
                                 alt={item.alt}
                                 className={`  bg-white shadow-inner shadow-slate-500 p-7 rounded-full  w-fit`}
                             />
-                        </button>
+                        </motion.button>
                     )
                 })}
 
@@ -63,7 +72,7 @@ const BoardV1 = () =>{
                         <h1 className="text-white font-bold text-xl">YOU PICKED</h1>
                     </div>
                     <div className="hidden lg:flex w-fit flex-col items-center gap-3">
-                        <div className="text-white flex items-center font-bold text-2xl justify-center ">{ winner == 'computer'? 'YOU LOSE': "YOU WON"}</div>
+                        <div className="text-white flex items-center font-bold text-2xl justify-center ">{ winner == 'computer'? 'YOU LOSE': winner == 'player'? "YOU WON" : "TIE"}</div>
                         <button onClick={stopCountDown} type="button" className="w-fit bg-white rounded-lg p-2 text-xl flex items-center justify-center">Play Again</button>
                     </div>
                     <div className=" flex lg:gap-[3rem] flex-col item  gap-[2rem]">
