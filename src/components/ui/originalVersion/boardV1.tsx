@@ -45,7 +45,7 @@ const BoardV1 = () =>{
                         onClick={()=>handleClick(item.alt)} 
                         type='button' 
                         key={index} 
-                        className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[3.7rem]  bottom-5" : " sicssorsG  -right-[1rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
+                        className={`${index==0? ' -top-8 -left-[1rem] paperG': index==1? " rockG right-[3.7rem]  bottom-5" : " sicssorsG  -right-[2.5rem] -top-8"} absolute shadow-2xl drop-shadow-2xl  rounded-full p-4 w-fit`}>
                             <Cards
                                 
                                 image={item.image}
